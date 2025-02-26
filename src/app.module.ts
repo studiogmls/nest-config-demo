@@ -15,10 +15,10 @@ console.log('envPath:', envPath);
       // 参考文档：https://docs.nestjs.com/techniques/configuration
       // 配置全局,否则UserMoudule无法访问
       isGlobal: true,
-      // 动态设置环境变量
-      envFilePath: envPath,
-      // 加载默认环境变量
-      load: [() => dotenv.config({ path: '.env' })],
+      // 动态设置环境变量，使用数组前面优先级高
+      envFilePath: [envPath, '.env'],
+      // 加载默认环境变量,使用load无法进行校验
+      // load: [() => dotenv.config({ path: '.env' })],
       // 环境变量验证
       // 文档地址：https://docs.nestjs.com/techniques/configuration#schema-validation
       validationSchema: Joi.object({
