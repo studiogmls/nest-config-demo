@@ -1,0 +1,12 @@
+{
+    "version": "2.0",
+    "token_secret": "secret",
+    "token": "token",
+    "consumer_key": "key",
+    "consumer_secret": "secret11111",
+    "db": {
+        "host": "localhost",
+        "port": 27017,
+        "name": "test"
+    }
+}

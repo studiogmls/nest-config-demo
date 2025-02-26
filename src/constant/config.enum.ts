@@ -1,0 +1,6 @@
+export enum ConfigEnum {
+  TOKEN_SECRET = 'TOKEN_SECRET',
+  USERNAME = 'USERNAME',
+  PASSWORD = 'PASSWORD',
+  PORT = 'PORT',
+}
