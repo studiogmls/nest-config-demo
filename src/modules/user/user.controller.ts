@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, ForbiddenException, Get, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -14,6 +14,11 @@ export class UserController {
   // 通过id查询用户
   @Get(':id')
   getUserById(@Param('id') id: string) {
+    if (id == '0') {
+      throw new ForbiddenException({
+        message: 'id为0，禁止访问',
+      });
+    }
     return this.userService.getUserById(id);
   }
 }

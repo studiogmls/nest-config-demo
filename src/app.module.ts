@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './modules/user/user.module';
@@ -28,6 +29,7 @@ console.log('envPath:', envPath);
         PORT: Joi.number().default(3000),
       }),
     }),
+    LoggerModule.forRoot(),
     UserModule,
   ],
   controllers: [AppController],
